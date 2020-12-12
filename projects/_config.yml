@@ -1,8 +1,0 @@
-title: Louis' projects
-logo: /assets/img/logo.png
-description: Various writing and programming projects
-show_downloads: true
-google_analytics:
-theme: jekyll-theme-minimal
-baseurl: "/projects"
-production_url : http://locua.github.io.com/projects

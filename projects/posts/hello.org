@@ -1,8 +1,0 @@
-#+LAYOUT: post
-#+title: Hello Mary
-#+author: Louis James
-#+date: 2020-02-18
-* Hello Mary
-
-
-

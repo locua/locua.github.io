@@ -1,0 +1,367 @@
+I"��<h1 id="logistic-regression-implementation">Logistic regression implementation</h1>
+<p>Implement logistic regression in python using batch gradient descent. Use your
+code to fit the data given above. Make sure you save the value of your loss function
+on each iteration in a data structure (e.g., list).</p>
+
+<h2 id="implementation-details-writeup">Implementation details [writeup]</h2>
+
+<p>I have written a class that can do binary classification using logistic regression on a dataset with multiple features. It has 6 self-implmented aside from the <strong>init</strong> method. These are listed and described below:</p>
+
+<h3 id="logistic_regr_hypothesisself-x-theta"><code class="language-plaintext highlighter-rouge">logistic_regr_hypothesis(self, X, theta)</code></h3>
+
+<p>This method takes an data set and theta values and dot products them together. It runs the logistic function with this as it’s input ( See equation below )</p>
+
+\[h_ \theta (x) =  \frac{\mathrm{1} }{\mathrm{1} + e^- \theta^Tx }\]
+
+<p>This returns a &lt;class ‘numpy.ndarray’&gt; of probability values between 0 and 1. Closer to 1 means it is more likely to be a class 1 and if its closer to 0 its more likely to be 0.</p>
+
+<h3 id="loss_cross_entropyself-h-y"><code class="language-plaintext highlighter-rouge">loss_cross_entropy(self, h, y)</code></h3>
+
+<p>This method takes an array of hypothesis values (such as returned by logistic_regr_hypothesis) and the ground truth values (ie the class) and calculates the cross entropy cost and returns the mean of the cost values.</p>
+
+<h3 id="add_interceptself-x"><code class="language-plaintext highlighter-rouge">add_intercept(self, X)</code></h3>
+
+<p>This creates a nump.ndarray of ones and concatenates this with the input array $X$ and transposes. This adds an element of 1 to each input value which means when $\theta_ 0$ is multiplied by one. Example output below:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[[</span><span class="mf">1.</span>   <span class="mf">2.75</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">1.</span>   <span class="mf">1.75</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">1.</span>   <span class="mf">1.5</span> <span class="p">]</span>
+ <span class="p">[</span><span class="mf">1.</span>   <span class="mf">4.25</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">1.</span>   <span class="mf">1.75</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">1.</span>   <span class="mf">4.75</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">1.</span>   <span class="mf">5.5</span> <span class="p">]</span>
+ <span class="p">[</span><span class="mf">1.</span>   <span class="mf">2.25</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">1.</span>   <span class="mf">0.5</span> <span class="p">]</span>
+ <span class="p">[</span><span class="mf">1.</span>   <span class="mf">3.5</span> <span class="p">]</span>
+ <span class="p">[</span><span class="mf">1.</span>   <span class="mf">4.</span>  <span class="p">]</span>
+ <span class="p">[</span><span class="mf">1.</span>   <span class="mf">3.25</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">1.</span>   <span class="mf">2.</span>  <span class="p">]</span>
+ <span class="p">[</span><span class="mf">1.</span>   <span class="mf">5.</span>  <span class="p">]</span>
+ <span class="p">[</span><span class="mf">1.</span>   <span class="mf">1.25</span><span class="p">]]</span>
+</code></pre></div></div>
+
+<h3 id="logistic_regr_fitself-x-y"><code class="language-plaintext highlighter-rouge">logistic_regr_fit(self, X, y):</code></h3>
+
+<p>This method fits input values with output values. Firstly it calls the <code class="language-plaintext highlighter-rouge">add_intercept</code> method for $X$ and initalises all $\theta_ i$ to 0.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="bp">self</span><span class="p">.</span><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">X</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>It then loops <code class="language-plaintext highlighter-rouge">self.n</code> times (number of iterations) calls some methods. Firstly it calls the <code class="language-plaintext highlighter-rouge">logistic_regr_hypothesis(self, X, theta)</code> method to calculate some intial hypothesis values based on the $\theta_ i$. It then calculates the gradient of the lossusing a derivative of the loss function (See equation below) and updates theta using this gradient and the learning rate.</p>
+
+<p><img src="https://miro.medium.com/max/429/1*gobKgGbRWDAoVFAan_HjxQ.png" alt="Derivative of the loss function" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="bp">self</span><span class="p">.</span><span class="n">theta</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">theta</span> <span class="o">-</span> <span class="n">grad</span><span class="o">*</span><span class="bp">self</span><span class="p">.</span><span class="n">lr</span>
+</code></pre></div></div>
+<p>It calcuates the <code class="language-plaintext highlighter-rouge">loss_cross_entropy</code> and then stores this. After the loop it returns final $\theta_ i$ values and the loss for each iteration.</p>
+
+<h3 id="predict_probabilitiesself-x"><code class="language-plaintext highlighter-rouge">predict_probabilities(self, X):</code></h3>
+
+<p>This predicts outputs based on a set of inputs using the trained model. It returns a list of probablities between 0 and 1.</p>
+
+<h3 id="predict_classself"><code class="language-plaintext highlighter-rouge">predict_class(self)</code></h3>
+
+<p>This final method simply rounds the the above output so as to return the predicted class. In this binary classifier values will be either 0 or 1.</p>
+
+<p><a href="https://medium.com/@martinpella/logistic-regression-from-scratch-in-python-124c5636b8ac">Main code reference from this medium article</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Main library imports
+</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Data
+## Inputs (Time in hours spent studying)
+</span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">asarray</span><span class="p">([[</span><span class="mf">0.50</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.75</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.00</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.25</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.50</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.75</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.00</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.75</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">1.75</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.25</span><span class="p">],</span> <span class="p">[</span><span class="mf">5.00</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.00</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.50</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.75</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.50</span><span class="p">],</span> 
+                <span class="p">[</span><span class="mf">4.00</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.25</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.50</span><span class="p">],</span> <span class="p">[</span><span class="mf">5.50</span><span class="p">]])</span>
+
+<span class="c1">## Outputs (Passed exam (1) or failed exam (0))
+</span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">asarray</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Select 75% for training and 25% for testing
+</span><span class="n">data_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">data_len</span><span class="p">)</span>
+
+<span class="c1">## use seed 1234 and shuffle
+</span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
+
+<span class="c1">## cutoff 25% through list
+</span><span class="n">cutoff</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="mf">0.25</span><span class="o">*</span><span class="n">data_len</span><span class="p">)</span>
+<span class="c1">## training indices and testing indices
+# 75% for training and 25% for testing
+</span><span class="n">train_ids</span> <span class="o">=</span> <span class="n">indices</span><span class="p">[:</span><span class="o">-</span><span class="n">cutoff</span><span class="p">]</span>
+<span class="n">test_ids</span> <span class="o">=</span> <span class="n">indices</span><span class="p">[</span><span class="o">-</span><span class="n">cutoff</span><span class="p">:]</span>
+
+<span class="c1"># Training and testing inputs and outputs
+</span><span class="n">X_train</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">train_ids</span><span class="p">]</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">train_ids</span><span class="p">]</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">test_ids</span><span class="p">]</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">test_ids</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">class</span> <span class="nc">Logistic_regression</span><span class="p">:</span>
+    <span class="s">''' Logistic regression binary classifier'''</span>    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">learn_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">number_of_iterations</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">lr</span> <span class="o">=</span> <span class="n">learn_rate</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">number_of_iterations</span>
+
+    <span class="k">def</span> <span class="nf">logistic_regr_hypothesis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
+        <span class="s">''' Takes data and theta values and calculates values for logsitic regression hypothesis 
+            giving probabilities of two classes, 0 or 1.
+            -------------
+            takes:
+                - X: data samples
+                - theta: theta values
+            returns:
+                - gz: hypothesis values
+            -----------
+        '''</span>
+        <span class="c1"># theta.transpose dot X
+</span>        <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+        <span class="c1"># logistic function
+</span>        <span class="n">gz</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">gz</span>
+
+    <span class="c1"># Cross entropy loss function
+</span>
+    <span class="k">def</span> <span class="nf">loss_cross_entropy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="s">''' Calculates the cross entropy loss
+            -----------
+            takes:
+                - h: logit predicted probabilties 
+                - y: true values
+            returns:
+                - loss value
+            -----------
+        '''</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="o">-</span><span class="n">y</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">add_intecept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="s">''' Adds vector of ones for the intercept theta term
+            -------------
+            takes:
+                - data values
+            returns:
+                - data with ones added
+            -------------
+        '''</span>
+        <span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">ones</span><span class="p">((</span><span class="n">X</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">)).</span><span class="n">T</span>
+        <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">x1</span><span class="p">,</span> <span class="n">X</span><span class="p">.</span><span class="n">T</span><span class="p">)).</span><span class="n">T</span>
+
+    <span class="k">def</span> <span class="nf">logistic_regr_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="s">''' Finds optimum theta values for data set
+            -------------
+            takes:
+                - X: inputs
+                - y: outputs
+                - lr: learning rate
+            returns:
+                - theta: list of theta values
+                - loss: list of loss values
+            -----------
+        '''</span>
+        <span class="c1"># Add intercept
+</span>        <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">add_intecept</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="c1"># initial theta
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">X</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="c1"># while delta_loss &gt; loss_threshold
+</span>        <span class="c1"># Loop n times
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">loss</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">n</span><span class="p">):</span>
+            <span class="c1"># Calculate hypothesis
+</span>            <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">logistic_regr_hypothesis</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">theta</span><span class="p">)</span>
+            <span class="c1"># Calculate gradient
+</span>            <span class="n">grad</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">.</span><span class="n">T</span><span class="p">,</span> <span class="p">(</span><span class="n">h</span> <span class="o">-</span> <span class="n">y_train</span><span class="p">))</span> <span class="o">/</span> <span class="n">y_train</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="c1"># Update rule
+</span>            <span class="bp">self</span><span class="p">.</span><span class="n">theta</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">theta</span> <span class="o">-</span> <span class="n">grad</span><span class="o">*</span><span class="bp">self</span><span class="p">.</span><span class="n">lr</span>
+            <span class="c1"># Recalculate hypothesis
+</span>            <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">logistic_regr_hypothesis</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">theta</span><span class="p">)</span>
+            <span class="c1"># Calculate loss
+</span>            <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">loss_cross_entropy</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">loss</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">theta</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">loss</span>
+    
+    <span class="k">def</span> <span class="nf">predict_probabilities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="s">''' Takes data and calculates class probabilities with model
+            ------------
+            takes:
+                - X: 1D list of data values
+            returns:
+                - y_prob: list of probalities
+        '''</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">y_prob</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">logistic_regr_hypothesis</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">add_intecept</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="bp">self</span><span class="p">.</span><span class="n">theta</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">y_prob</span>
+    
+    <span class="k">def</span> <span class="nf">predict_class</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">''' Returns predicted class using probalilities'''</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">y_prob</span><span class="p">.</span><span class="nb">round</span><span class="p">().</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        
+        
+    
+<span class="n">model</span> <span class="o">=</span> <span class="n">Logistic_regression</span><span class="p">(</span><span class="n">learn_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">number_of_iterations</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+
+<span class="o">%</span><span class="n">time</span> <span class="n">theta</span><span class="p">,</span> <span class="n">loss</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">logistic_regr_fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">theta</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CPU times: user 79 ms, sys: 26 µs, total: 79 ms
+Wall time: 78 ms
+
+array([-2.24755547,  0.83621764])
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Results
+</span><span class="n">y_prob</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">predict_probabilities</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="c1">## Class values
+</span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">predict_class</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"## Probability values: "</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"## Predicted class: "</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"## Ground truth: "</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## Probability values:  [0.16515078 0.56490605 0.81986364 0.19602313 0.4608276 ]
+## Predicted class:  [0 1 1 0 0]
+## Ground truth:  [0 1 1 0 0]
+</code></pre></div></div>
+
+<h3 id="question-1">[question 1]</h3>
+<p>Using a learning rate of 0.1 the algorithm seems to converge after about 1000-1500 iterations.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Loss against iterations"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">"iteration"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">"loss"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="output_7_0.png" alt="png" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span><span class="p">,</span> <span class="n">linear_model</span>
+
+<span class="c1"># Plot outputs
+</span><span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span><span class="s">'g*'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span><span class="s">'b.'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">,</span> <span class="s">'r+'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">([</span><span class="s">"Ground truth"</span><span class="p">,</span> <span class="s">"Predicted"</span><span class="p">,</span> <span class="s">"Probability"</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">"Time spent studying"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">"Probability or class"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Exam results logistic regression classification</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+<span class="err">?</span>
+<span class="c1"># evaluation
+</span><span class="k">print</span><span class="p">(</span><span class="n">metrics</span><span class="p">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">accuracy: %.2f"</span> <span class="o">%</span> <span class="n">metrics</span><span class="p">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+
+<span class="c1"># calculate precision and recall (and f-score, a weighted average of precision and recall) 
+</span><span class="n">precision</span><span class="p">,</span><span class="n">recall</span><span class="p">,</span><span class="n">fscore</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">metrics</span><span class="p">.</span><span class="n">precision_recall_fscore_support</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span> <span class="p">)</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">np</span><span class="p">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y_test</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">class %s: precision: %.2f, recall: %.2f,  f-score: %.2f"</span> <span class="o">%</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">precision</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">recall</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">fscore</span><span class="p">[</span><span class="n">c</span><span class="p">]))</span>
+</code></pre></div></div>
+
+<p><img src="output_8_0.png" alt="png" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[3 0]
+ [0 2]]
+
+accuracy: 1.00
+
+class 0: precision: 1.00, recall: 1.00,  f-score: 1.00
+
+class 1: precision: 1.00, recall: 1.00,  f-score: 1.00
+</code></pre></div></div>
+
+<h3 id="question-2">[question 2]</h3>
+
+<p>If alpha (the learning rate) is too large the loss value seems to oscillate to varying degrees. This is due to overshooting the minimum and then overshooting back or looping around the minimum.  See figure below…</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="n">figure</span>
+<span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">'w'</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s">'k'</span><span class="p">)</span>
+<span class="c1"># Number of iterations
+</span><span class="n">num_its</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="c1"># Trying out different learning rates and plotting
+</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Logistic_regression</span><span class="p">(</span><span class="n">learn_rate</span><span class="o">=</span><span class="mf">3.5</span><span class="p">,</span> <span class="n">number_of_iterations</span><span class="o">=</span><span class="n">num_its</span><span class="p">)</span>
+<span class="n">theta</span><span class="p">,</span> <span class="n">loss</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">logistic_regr_fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Logistic_regression</span><span class="p">(</span><span class="n">learn_rate</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">number_of_iterations</span><span class="o">=</span><span class="n">num_its</span><span class="p">)</span>
+<span class="n">theta</span><span class="p">,</span> <span class="n">loss</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">logistic_regr_fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Logistic_regression</span><span class="p">(</span><span class="n">learn_rate</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">number_of_iterations</span><span class="o">=</span><span class="n">num_its</span><span class="p">)</span>
+<span class="n">theta</span><span class="p">,</span> <span class="n">loss</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">logistic_regr_fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+
+<span class="c1"># Plot stuff
+</span><span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Loss against iterations using large loss"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">"iteration"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">"loss"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">([</span><span class="s">"loss=3.5"</span><span class="p">,</span> <span class="s">"loss=3"</span><span class="p">,</span> <span class="s">"loss=2"</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="output_10_0.png" alt="png" /></p>
+
+<h3 id="question-3">[question 3]</h3>
+
+<p>Assume that you are applying logistic regression to the iris (flower)
+dataset, as in the previous assignment. Answer the following questions:</p>
+
+<h4 id="a-how-would-your-hypothesis-function-change-in-this-case-and-why">(a) How would your hypothesis function change in this case and why?</h4>
+
+<p>The current hypothesis function works and with <em>n</em> of features. As shown in code cell below this one…</p>
+
+<h4 id="b-how-would-you-utilize-your-implementation-of-logistic-regression-in-order-to-perform-multi-class-classification-on-the-iris-dataset">(b) How would you utilize your implementation of logistic regression in order to perform (multi-class) classification on the iris dataset?</h4>
+
+<p>I would implement a logistic regression method that would loop over each of a number of given classes and for each class do fit a logistic regression model via gradient descent. Then I would combine the models to give a multi class classifier. Pseudocode below:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1"># Fit per class and save theta values
+</span><span class="n">theta_per_class</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">:</span>
+    <span class="n">theta_per_class</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">logistic_regression_fit</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">X</span><span class="p">,</span> <span class="n">c</span><span class="p">.</span><span class="n">y</span><span class="p">))</span>
+    
+<span class="n">y_probs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># For each theta set (ie model)
+</span><span class="k">for</span> <span class="n">theta</span> <span class="ow">in</span> <span class="n">theta_per_class</span><span class="p">:</span>
+    <span class="c1"># Find prediction probabilities and store
+</span>    <span class="n">y_probs</span><span class="p">.</span><span class="n">append</span><span class="p">([</span><span class="bp">self</span><span class="p">.</span><span class="n">predict_probabilities</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">theta</span><span class="p">))</span>
+
+<span class="n">y_prob</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># For each set of probabilities 
+</span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y_probs</span><span class="p">.</span><span class="n">T</span><span class="p">):</span>
+    <span class="c1"># Find max and save
+</span>    <span class="n">y_probs</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+
+    
+    
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+
+<span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="p">.</span><span class="n">load_iris</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="p">.</span><span class="n">data</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">iris</span><span class="p">.</span><span class="n">target</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Logistic_regression</span><span class="p">()</span>
+<span class="n">model</span><span class="p">.</span><span class="n">logistic_regr_hypothesis</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">X</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
+       0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
+       0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
+       0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
+       0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
+       0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
+       0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
+       0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
+       0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
+       0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
+       0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
+       0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5])
+</code></pre></div></div>
+
+:ET

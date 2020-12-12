@@ -1,0 +1,28 @@
+#+title: Louis James
+#+SUBTITLE: The personal website of Louis.
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="assets/rethink.css" />
+#+options: toc:t html-postamble:nil num:nil html-style:nil
+* About
+  
+Student in cognitive and decision sciences at [[https:ucl.ac.uk][UCL]]. Interested in neural and
+cognitive bases of personality and mental disorders as well as computational
+modelling. Teaching assistant in Computing department at [[https:gold.ac.uk][Goldsmiths University]].
+Assisting students with C++ programming, git version control, Python data visualization
+and creative projects.
+
+# ##+attr_html: :width 850 px :align center
+[[./assets/saints.jpg]]
+
+
+* Contact
+- +447896599821
+- [[mailto:hi@louisjames.net][hi@louisjames.net]]
+- [[https:github.com/locua][github.com/locua]]
+* Projects
+- [[https:locua.github.io][Link to projects]] 
+
+# * Education
+# ** UCL - Cognitive and Decision Sciences, MSc
+# ** Goldsmiths, University of London - Creative Computing, BSc
+* CV
+[[https:locua.github.io/cv.html][Link to CV]] 

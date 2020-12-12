@@ -1,0 +1,42 @@
+#+layout: post
+* Life-Tasks
+** TODO Sort out Santander account
+** TODO Investigate floattion tanks [[https:floathub.co.uk][floathub]]
+** insure laptop and phone
+** TODO 40 per day
+*** Learning, what would you like to priorities
+**** French
+***** two tracks per day listen to both first. Then listen and take notes of all question/answers
+** Download cog sci reading list
+* Uni-Tasks
+** TODO Jamie questions, cinder camera and possible reference letter for cog sci
+** TODO Review ML slides, anki review
+** TODO Questions, check blog??
+** TODO *Project*
+** TODO Security coursework
+** TODO Security tests!!!!!!!!!!!!!!!!!!!
+** TODO Security anki review
+* Modules
+* Work-Tasks
+** DONE timesheets
+** Jobs
+
+Jobhunt:
+- Nepotism
+- Social
+- Word of mouth
+- Art jobs
+
+* Daily-Tasks
+** TODO Read before bed
+   SCHEDULED: <2019-08-14 Wed 23:00 >
+   :PROPERTIES:
+   :LAST_REPEAT: [2019-08-13 Tue 18:53]
+   :END:
+
+* Random tasks
+** backup dotfiles with backupdotfiles.sh
+** backup files to server filebackup.sh
+* TODAY
+** Begin new project specification
+** Could I do an interactive browser based write up?

@@ -1,0 +1,129 @@
+I"W<blockquote>
+  <p>12/01/2020</p>
+</blockquote>
+
+<h2 id="machine-learning-guinea-pigs">Machine Learning guinea pigs</h2>
+
+<p>Across the world societies today operate with great financial <a href="https://www.forbes.com/sites/niallmccarthy/2017/11/15/the-global-pyramid-of-wealth-infographic/#6dc995a5558b">inequality</a>, this and other social disparities shape an individual’s surroundings and opportunities. With recent <a href="https://www.kdnuggets.com/2019/12/predictions-ai-machine-learning-data-science-technology.html">advances</a> in Machine Learning areas and applications (such as <em>reinforcement learning</em> and <em>natural language processing</em> amongst others), the field of Artificial Intelligence/ML is becoming an ever increasingly present in society, with applications across the whole spectrum of human practice (academia, industry, the arts). Subsequently an evolving tech-steeped geopolitical landscape, that will likely contribute to new <a href="https://www.ianhogarth.com/blog/2018/6/13/ai-nationalism">ideological forms and methods of conflict</a>, makes the design and consideration of ML systems all the more important. While actuarial (statistically grounded) methods can produce more accurate judgements than clinical (personal) discernment,<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup> the prevailing methods of the day carry risks of reinforcing and exacerbating social stereotypes and demographic disparity. In this essay I’d like to illustrate the potential for ML systems to cause harm, the various forms this can take, and how, as designers, programmers and instigators of these systems, one has responsibility for challenging and mitigating this outcome to create fairer technology.</p>
+
+<p>Machine learning is the study of algorithms and statistical models that perform a specific task without explicit instructions. The models and algorithms are created through a process of “learning”, relying on patterns and inference to create a model from data. However as suggested in the <em><a href="https://fairmlbook.org/index.html">Fairness in Machine Learning book</a></em>: Machine Learning is a socio-technical system not a purely mathematical one<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote">2</a></sup>. The use of data collected from and by people exhibits it’s unification of statistical reasoning, computational techniques and human behaviour. It is becoming an increasingly prevalent tool across a range of digital technologies used today, from widely used social media sites and search engines, as well as in criminal justice and the commercial sphere.</p>
+
+<p>The process of <em>learning _works by generalising about the target data; for example, it might be fed thousands of images and then find common patterns in the images. Machine learning applications can be distinguished by <a href="https://www.kdnuggets.com/2019/11/beginners-guide-three-types-machine-learning.html">three</a> main actions, regression (finding a line or curve that describes a relationship between two or more variables), classification (classifying an observation as one of a set of categories) and clustering / information retrieval (e.g. finding documents that match a query). The former two being forms of _supervised</em> (where the data is fully labelled) <em>learning</em> and the latter being <em>unsupervised</em> (the data is not labelled).<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote">3</a></sup> ML is a tool that learns by example. This alerts us to one of the immediate dangers of such a system. If the original samples contain a bias or systematic prejudice then it will absorb that bias into its logic through it’s inductive process of generalisation. As “historical examples will almost always reflect historical prejudices against certain social groups, prevailing cultural stereotypes, and existing demographic inequalities”, it is likely that these biases will be <em>learnt</em>. <sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote">4</a></sup> Analysing and understanding the inner logic of these models is difficult or impossible as ML produces “<a href="https://towardsdatascience.com/the-black-box-metaphor-in-machine-learning-4e57a3a1d2b0">black boxes</a>”; the exact decision circuits are complicated and abstract and thereby difficult to follow. Consequently it is important to scrutinise the systemic weak points where bias can enter a model.</p>
+
+<p><img src="1.png" alt="alt_text" /></p>
+
+<p>Fig. 1. The Machine Learning loop <sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote">5</a></sup></p>
+
+<p>The diagram above shows the “Machine Learning Loop”, each of the connecting arrows are processes within the loop where bias can be introduced. In measurement, humans make subjective decisions about what data to collect or use and this can lead to bad data informing the model. <em>Measurement bias _for example “occurs when the data collected for training differs from the data collected during production”. S_ample bias _and _prejudicial bias</em> are also two other types that can occur during the <em>measurement</em> stage, this is where the bias may not represent the full problem space or is not relevant to the problem<sup id="fnref:6" role="doc-noteref"><a href="#fn:6" class="footnote">6</a></sup>. Even without specifically mentioning an attribute, one such as race can creep into model due to its relationship to other factors, perhaps the area someone lives. An interesting example of this is the <a href="http://www.streetbump.org/">street bump app</a>, a crowd sourcing tool which “helps residents improve their neighbourhood streets”, by collecting data on the condition of roads via their smartphones, it provides governments with that data to organise a responses. Although the data points themselves are relating bumps and anomalies on certain bit of road, the very fact that it is partly geographic cements a societal connection. Smartphones are less prevalent in low income areas and places with a greater elderly population so the data will contain this inherent socio-geographic skew. This is a relatively harmless example but it alludes to the essentially people-driven data collection system we have, where societal structures and subjective human decisions have an effect.<sup id="fnref:7" role="doc-noteref"><a href="#fn:7" class="footnote">7</a></sup> Another stage where bias can occur is the learning stage itself, this can broadly be called <em>algorithmic bias</em>.<sup id="fnref:8" role="doc-noteref"><a href="#fn:8" class="footnote">8</a></sup> In some cases disparate treatment of the eventual stakeholders in an algorithmic system can occur. As seen below (Fig. 2), it can be a side effect of maximising accuracy and the majority culture tends to win out.</p>
+
+<p>So how can we define, measure and regulate these systems? There is ongoing <a href="https://www.youtube.com/watch?v=jIXIuYdnyyk">movement</a> in academia to define various metrics of fairness<sup id="fnref:9" role="doc-noteref"><a href="#fn:9" class="footnote">9</a></sup> and how and where these can be applied to ML systems. The paper <em>Equality of Opportunity in Supervised Learning _<sup id="fnref:10" role="doc-noteref"><a href="#fn:10" class="footnote">10</a></sup></em> <em>suggests a methodology of adjustment (or fairness constraint) to remove harmful discrimination by a predictive system (there is also a companion <a href="https://research.google.com/bigpicture/attacking-discrimination-in-ml/">presentation</a> with interactive visualisations demonstrating the methods in a toy scenario). By adjusting the sliders one can see how using various combinations of thresholds, affects the outcome for various stakeholders in the scenario: the two demographic groups involved as well as the business interest (the profit gained). This allows you to observe the various adjustments one can make to a model, and how these will affect different groups. Again in the graph below (from the paper), you can also see how various approaches yield different outcomes for different demographic groups. Single threshold, also described as _group blindness</em>, is an approach where one threshold is applied across all groups,_ seems fair, right_? However variables (such as <strong>amount of debt</strong> or <strong>mix of accounts</strong>) used to calculate the score may be spread differently in the different demographic groups, so in choosing the same FICO score (credit score) threshold for different groups, it leaves them with disparate outcomes in terms of accuracy. Various approaches are discussed and the paper proposes the <em>equal opportunity</em> constraint as a solution to the various trade offs between groups and accuracy.</p>
+
+<p><img src="2.png" alt="alt_text" />
+<sup id="fnref:11" role="doc-noteref"><a href="#fn:11" class="footnote">11</a></sup></p>
+
+<p>Fig 2.</p>
+
+<p>A well covered example of a racially biased system that has been used in the US, was a <strong>recidivism</strong> (relapse into crime) <strong>prediction</strong> <strong>algorithm</strong> (COMPAS), created by a company called Northpointe (now called <em>Equivant</em>). A news agency ProPublica found the algorithm falsely flagged black defendants as being nearly twice as likely to recidivate as white defendants as well as mislabelling whites as low risk more often<sup id="fnref:12" role="doc-noteref"><a href="#fn:12" class="footnote">12</a></sup>.</p>
+
+<p><img src="3.png" alt="alt_text" />
+ <sup id="fnref:13" role="doc-noteref"><a href="#fn:13" class="footnote">13</a></sup></p>
+
+<p>The analysis was argued against by Northpointe, who said that they had used another more standard definition of fairness, <em>predictive parity _(that’s the likelihood of offending amongst high risk offenders) and it was the same regardless of race. While different definitions of fairness are debated, a paper (Dressel and Farid)<sup id="fnref:14" role="doc-noteref"><a href="#fn:14" class="footnote">14</a></sup> has suggested that algorithmic recidivism prediction may be a fundamentally lost cause. While citing research revealing the impossibility of combining both Northpointes and ProPublica’s definitions of fairness, the researchers conducted a study showing that COMPAS was no better at predicting recidivism than a simple model (the exact nature of COMPAS has not been released), as well as crowdsourced and	 untrained humans (<a href="https://www.mturk.com/">amazon mechanical turk</a>) who were given the same task. They showed their model (a simple linear predictor) with only 2 features, as opposed to COMPAS’s 137 features (features are measurable properties, such as _previous crimes committed</em> or <em><a href="https://www.documentcloud.org/documents/2702103-Sample-Risk-Assessment-COMPAS-CORE.html#document/p6/a296601">levels of boredom</a>)</em>, performed as well as COMPAS further suggesting “more sophisticated classifiers do not improve prediction accuracy or fairness”.</p>
+
+<p>Back in the UK, the Kent Police were also <a href="https://www.kentonline.co.uk/sheerness/news/what-if-police-could-detect-93715/">trialling</a> predictive technology from American Company PredPol in 2016, and a senior counter-terror office has “hinted at an increasing role for AI in monitoring tens of thousands of people on terror watch lists”. Durham constabulary have also been using an algorithm (that helps officers determine eligibility for low-risk offenders for a rehabilitation program) called HART (Harm Assessment Risk Tool). This tool predicts a person’s “risk of reoffending based on 34 variables, which mainly focus on prior criminal behaviour”. <sup id="fnref:15" role="doc-noteref"><a href="#fn:15" class="footnote">15</a></sup> Tools such as these highlight another place in the “machine learning loop” where bias can be introduced; when the system takes action on the world. The risk at this stage of using a discriminatory algorithm to make a decision, is the potential to create harmful feedback. With <a href="https://www.predpol.com/how-predictive-policing-works/">Predpol’s</a> predictive policing services (a company that uses machine learning with historical crime data, predicting in what areas crime is most likely to occur) feedback loops could also be created. Areas that are predicted to need extra policing will get extra policing, this could lead to “self-fulfilling predictions” where the prediction appears to be correct even though it may have been made on biased data or a biased algorithm. Another feedback inducing scenario is one where predictions affecting the training set; if more crimes are intercepted in certain areas then records of these may be fed back to the algorithm which may end up in over policing of those areas.<sup id="fnref:16" role="doc-noteref"><a href="#fn:16" class="footnote">16</a></sup></p>
+
+<p>Another place feedback appears (as mentioned in the <a href="https://fairmlbook.org/pdf/fairmlbook.pdf">Fairness and Machine Learning Book</a>) is with search engines. An ML algorithm may be involved with selecting results based on what it determines is relevant to the query, but it is also influenced by the popularity of the results (which may be defined in part by the number of times they are clicked). A similar case would be with a recommendation algorithm on a video sharing site. In the case of search results, if bias has informed the results, you will only be shown that particular spread and by clicking those links you will reinforce the likelihood of those results being displayed again. An Advertising system may also have a similar effect as it conforms to stereotypes and optimises clickthrough causing another self-reinforcing feedback effect.</p>
+
+<p>This leads on to a final case study. A collection of language modelling techniques called <em>word</em> <em>embedding</em> also show how ML systems can contain bias. In this case, a group of researchers at Google had <a href="https://www.technologyreview.com/s/602025/how-vector-space-mathematics-reveals-the-hidden-sexism-in-language/">trained</a> a Neural Network (a type of machine learning model vaguely inspired by biological networks in animal brains) on millions of words taken from Google news texts. The goal of the network was to find patterns in language which are then mapped out in a multi-dimensional “vector space” (in this example named <em><a href="https://en.wikipedia.org/wiki/Word2vec">Word2Vec</a></em>); words in similar parts of the space would have similar meanings or particular associations. In the space, gender biased associations were found to exist between words for example, man would match to doctor where women_ <em>would match nurse</em>._ Data sets and other language models such as <em>Word2Vec</em> have useful applications in Language based systems. A similar bias can be observed in google translate (see screenshots below).</p>
+
+<p><img src="4.png" alt="alt_text" /></p>
+
+<p>Turkish like most Turkic languages is gender-neutral. When translating from Turkish to English google translate assumes the gender pronouns of the two occupations. Bolukbasi et al, in a 2016 paper, <sup id="fnref:17" role="doc-noteref"><a href="#fn:17" class="footnote">17</a></sup> demonstrated a way of editing <em>Word2Vec</em> via a method they call <em>hard-debiasing</em>. This involved locating a “comprehensive list” of biased word pairs and transforming the corresponding vector space so as to eliminate the offending associations. Although these forms of bias don’t cause immediate harm, models such as these get applied into other systems (such as translation, or search engine results) it is important to mitigate these so they don’t end up reinforcing existing societal disparities. If such language modelling techniques are increasingly used this offers an opportunity to combat forms of prejudice in language and correct it and possibly even transform sculpt language for the better.</p>
+
+<p>As I have discussed here, machine learning systems have great potential to not only restate but exacerbate today’s inequalities and prejudices. Due care is needed in their design and application.  Purely computer science minded optimisation strategies do not create equitable ML systems, attention to the wider socio-technical context is crucial, as well as understanding the limitations of such apparatus. For the time being, novel applications of Machine Learning, particularly those with immediate “allocative” implications as well as indirectly impactful ones (representational harm) should be properly studied and tested before application.<sup id="fnref:18" role="doc-noteref"><a href="#fn:18" class="footnote">18</a></sup> With arms-race like competition within Artificial Intelligence research globally,<sup id="fnref:19" role="doc-noteref"><a href="#fn:19" class="footnote">19</a></sup> other AI/ML driven <a href="https://www.gov.uk/government/news/new-technology-revealed-to-help-fight-terrorist-content-online">movements</a> in the UK Home Office and even calls for “an alpha data science/AI operation” in Whitehall, by senior political <a href="dominiccummings.com">advisors</a>, it is a worry that we will see more untested and ineffective systems being operated on the public. As the underlying nature of the ML pipeline (<em>the machine learning loop</em>), and algorithmic systems in general, accommodates a potential (or unavoidable eventuality?) for discriminatory systems, we should <a href="https://www.telegraph.co.uk/news/2019/12/11/post-office-ordered-pay-subpostmasters-58m-compensation-false/">remember</a> that they are not solely objective decision-makers and care and transparency is needed throughout the production process.</p>
+
+<!-- Footnotes themselves at the bottom. -->
+<h2 id="notes">Notes</h2>
+
+<!-- Docs to Markdown version 1.0β17 -->
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+
+      <p>Dawes, R.M., Faust, D., &amp; Meehl, P.E. (1989) Clinical versus actuarial judgment. Science, 243:1668-1674. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+
+      <p>Solon Barocas and Moritz Hardt and Arvind Narayanan, <em>Fairness and Machine learning</em>, <a href="http://fairmlbook.org">fairmlbook.org</a>, Chapter 1, 2019 <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+
+      <p>Rebecca Vickery, <em>Beginners guide to three main types of ML</em>, 2019, kdNuggets <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+
+      <p>Solon Barocas and Moritz Hardt and Arvind Narayanan <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:5" role="doc-endnote">
+
+      <p>Solon Barocas and Moritz Hardt and Arvind Narayanan <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:6" role="doc-endnote">
+
+      <p>M. Tim Jones, <em>Machine Learning and bias,</em> 2019, IBM Developer <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:7" role="doc-endnote">
+
+      <p>T. Harford, <em>Big Data, A big mistake?</em>, 2014 <a href="#fnref:7" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:8" role="doc-endnote">
+
+      <p>M. Tim Jones, <em>Machine Learning and bias,</em> 2019, IBM Developer <a href="#fnref:8" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:9" role="doc-endnote">
+
+      <p>Arvind Narayanan, Tutorial: _21 fairness definitions and their politics, _2018 <a href="#fnref:9" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:10" role="doc-endnote">
+
+      <p>Moritz Hardt, Eric Price, Nathan Srebro,_ Equality of Opportunity in Supervised Learning, _2016 <a href="#fnref:10" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:11" role="doc-endnote">
+
+      <p>Moritz Hardt, Eric Price, Nathan Srebro <a href="#fnref:11" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:12" role="doc-endnote">
+
+      <p>Angwin et al, 2016, <a href="https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing">ProPublica</a> <a href="#fnref:12" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:13" role="doc-endnote">
+
+      <p>Angwin et al <a href="#fnref:13" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:14" role="doc-endnote">
+
+      <p>Dressel, Farid, _ The accuracy, fairness and limits of predicting recidivism_, 2018 <a href="#fnref:14" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:15" role="doc-endnote">
+
+      <p>Josh Loeb, <a href="https://eandt.theiet.org/content/articles/2018/04/ai-and-the-future-of-policing-algorithms-on-the-beat/">Ai and the future of policing: algorithms on the beat</a>, 2018 <a href="#fnref:15" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:16" role="doc-endnote">
+
+      <p>Solon Barocas and Moritz Hardt and Arvind Narayanan, pages 24 to 26. <a href="#fnref:16" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:17" role="doc-endnote">
+
+      <p>Bolukbasi et al, _Man Is to Computer Programmer as Woman is to Homemaker? Debiasing Word Embeddings, _2016.  <a href="http://arxiv.org/abs/1607.06520">arxiv.org/abs/1607.06520</a> <a href="#fnref:17" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:18" role="doc-endnote">
+
+      <p>Solon Barocas and Moritz Hardt and Arvind Narayanan <a href="#fnref:18" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:19" role="doc-endnote">
+
+      <p>I Hogarth, Ai Nationalism, 2018 <a href="#fnref:19" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+:ET

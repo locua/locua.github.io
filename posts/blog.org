@@ -1,0 +1,475 @@
+#+layout: post
+* Initial post; Initial Ideation
+** Hey :-)
+ Just a little note to say hello. Welcome to you and welcome to me embarking on this new voyage. Here are some research points summing up five contexts, technical topics,inspiring works and initial ideas. There are also some related research links.
+ 
+Here is some other[[https://locua.github.io][ stuff]] 
+** Contexts : 
+*** Mnenomics / exorcortexes Memory and learning software augmentation. 
+*** Cognitive Science research Cognitive Science, an interdisciplinary, scientific study of the mind and its processes. 
+*** Social Networks ( Decentralised networks (?)) Social networks are hugely intertwined with our contemporary experience. Consequently the design and architecture of these networks is an =continue= 
+*** Language learning systems / e learning systems Linked to exocortexes / possibly sub category 
+*** Computer Networking - The geographical; geopolitical and economic structure of the internet.
+** Technical Topics :
+*** Server side programming 
+- Server side programming and networking. The ip stack and the many different transfer protocols and their various pros/cons/
+:php:python:javascript:ip:http/s:security: 
+*** Natural Language Processing
+- The processing of natural language with algorithms to analyse and generate language.
+:nlp:
+*** Web interfaces
+- User interfaces and the way these affect our usage of software. Human computer interaction; persuasive design.
+:addiction:gui:tui:cli:
+*** Machine learning
+- Automated analytical model building through data analysis.
+:ai:datascience:
+*** Data visualisation 
+- How can we visualise data for anaylsis, planning, monitoring and communicating.
+:bretvictor:python:pandas:
+** Inspiring work :
+[[file:assets/hyperreal.jpg]]
+*** Devine Lu Linvega | Nataniev ecosystem | [[https://wiki.xxiivv.com/#home][wiki.xxiivv.com]]
+   This extensive collection of work and experiments is a fine example of an exorcortex and personal digital archive. It archives and logs the work of Devine.
+*** Urbit | [[https://urbit.org][urbit.org]]
+   Urbit is decentralised personal server platform. It is a redesigning of the standard client-server that is used across most of the internet.
+*** Org-mode | [[https://orgmode.org][orgmode.org]]
+    Org-mode is a document editing, formatting and organising mode for the emacs text editor.
+*** Hyper Reality (Concept [[http://hyper-reality.co][Film]])
+"It presents a provocative and kaleidoscopic new vision of the future, where physical and virtual realities have merged, and the city is saturated in media. It is the latest work in an ongoing research-by-design project by Keiichi Matsuda". This film although not directly a work of computational practice is a good example of critical and speculative design, which is potential point of reference for my project.
+*** Bret Victor's [[https://dynamicland.org/][Dynamic Land]]
+    A visionary, immersive, augmented reality community computer, Wow!
+[[file:assets/dynamicland.jpg]]
+** Current ideas and sub ideas :
+*** Exorcortex 
+    This idea is to design a tool that could be used for memory managment and personal organisation or to augment and improve studying in an educational (specifically University level) context. Sub Ideas below:
+**** A new org-mode related emacs/spacemacs package to add connectivity to org mode more seamlessly. I understand that org-mode is a complex and extensive tool so as I learn it myself maybe I will think of something that hasn't already been created and think about implementing this. Possibly taking on the =elisp= at this stage could be a bit of a challenge, but more simple programs linked with some more complex web programming in python or javascript could work. Research intersting packages linked to learning, mnemonics, memory etc below.
+**** Something quite simple like flash card generation software could an intersting base idea, but currently not sure what could be novel about this.
+**** Dynamic spatial exocortex. Bret Victor inspired self documenting research project into dynamic immersive computing systems. 
+***** Dynamic interaction with ideas installation space of networked objects.
+    :learning:hci:ux:BCI:interactiondesign:
+*** Urbit exocortex 
+     (These ideas could also take the form of an experiment in / critical exploration of decentralised and/or encrypted p2p software.)
+**** I have another vague idea to implement some sort of exocortex / connectivity tool on a server running Urbit...
+     ... with the intention of learning a bit of Hoon (the language Urbit ships are programmed in). Again issue of taking on learning new language could be too much. I have applied for the Hoon school online so will see when the they get back to me about the October beginners course and the scope and what I might be able to achieve with this learning.
+**** related projects:
+***** [[https://thebrain.com/][The brain]]
+***** [[https://github.com/Kungsgeten/org-brain][org brain]]
+**** Exorcortex networking / compounding tool 
+      The same thing as above but not utilising Urbit. Possibly something P2P with consideration of encryption. This could sit on top of or work with a P2P tool such as [[https://syncthing.net/][syncthing]] or something else (TODO research other tools and the technology itself).
+:networking:internet:web:
+*** Research project 
+ A coginitive science, psychology, sociology research project. Specifically I'm not yet sure on this one but inspired by current reading I'm doing it could focus on cognitive distortions and questioning rationality. This is a vague idea at the moment as I've not got a solid idea technically for this one. However I thought I would include it and update this section if I think of sosomething strong that could explore this. This could link *Social Networks* and *Natural language processing*.
+Reading below:
+**** [[https://www.onlinelibrary.wiley.com/doi/full/10.1111/cogs.12392][Social Media and Language Processing: How Facebook and Twitter Provide the Best Frequency Estimates for Studying Word Recognition]]
+**** [[http://www.tomstafford.staff.shef.ac.uk/docs/stafford_and_bell2012.pdf][Brain network: social media and the cognitive scientist]]
+**** Rationality for Mortals: How People Cope with Uncertainty by Gerd Gigerenzer
+**** Thinking Fast and Slow by Daniel Kahneman (on his work with Amos Tversky)
+**** What Darwin Got Wrong by Jerry Fodor and Massimo Piattelli-Palmarini
+**** Inevitable Illusions: How Mistakes of Reason Rule Our Minds by Massimo Piattelli-Palmarini
+**** I am a strange loop
+:strangeloop:selfreference:encoding:analogy:consciousness: 
+*** Mnenomics generator 
+    A tool to generate mnemonic learning. Is there a way to generalise mnemonics to be applied to a generic memory task. It could work so you type up the information you need to learn and it presents and refactors it into a more easily learnable format.
+**** Investigate memory devices and common mnemonics
+**** Could this be an org-mode related package?
+**** [[https://thebrain.com/][The brain]]
+**** [[https://github.com/Kungsgeten/org-brain][org brain]]
+ :learning:memory:BCI: 
+**** Michael Nielsen's Mnemonic Essays
+*** Goldsmiths analytica 
+Research project into "PSYOPS" for elections and public discourse. Small scale exploitation of university tools or related social media  explore the ethical ramifications of targeted advertising. Could involve mapping of social networks.
+**** [[https://www.propublica.org/datastore/dataset/political-advertisements-from-facebook][political ad facebook data set]]
+:groupthink:democracy:datamining: 
+*** Social Network Prototype 
+A critically designed social media prototype. Which could connect to or compound some of the above ideas and sub ideas or elements there of.  
+:socialmedia:serverside:databases:web:hci: 
+** Related / useful links
+- [[https://www.youtube.com/watch?v=g6JGbZxN66Y][Constructing exorcortexes with huginn and halo]] 
+- [[https://www.youtube.com/watch?v=klTjiXjqHrQ][Seeing spaces, Bret Victor]]
+- [[https://paperswithcode.com/][Machine Learning resource]]
+- [[https://www.iconeye.com/design/features/item/11491-keiichi-matsuda-total-digital-overload][Keiichi Matsuda, Digital Overload]]
+------------------------------------------------------------------------
+* Idea Development
+** Idea clean up and development; questions?
+- Could data analysis and psychographic techniques be used for issues like climate change (or for democracy)?
+- Consciousness raising social media?
+- How could the idea of an exocortex be used to explore a theme of cognitive science? Link to mnemonics; Link to politico-linguistics
+** Reading
+*** Psychographic microtargeting and cambridge analytica 
+**** [[https://qz.com/1240331/cambridge-analytica-psychology-the-science-isnt-that-good-at-manipulation/][cambridge analytica psychology]]
+***** notes and reflections:
+****** How far did they change minds? or is it just reinforcement of beleifs?
+      “It’s the sociology and the psychology together,” says Scheufele. “We’re no longer targeting segments, we’re targeting individuals.”
+**** [[https://www.gsb.stanford.edu/insights/science-behind-cambridge-analytica-does-psychological-profiling-work][stanford cambridge analytica psychological techniques analysis]]
+***** notes and reflections:
+****** Ads are more effective when targeted at individuals
+****** Study showed participants were 50% more likely to buy cosmetics related to Ad if they had been targeted with an Ad specific to their personality
+****** Similar results when crossword puzzle app had personality tailored apps
+****** "We need firefighters and saftey equipment"
+**** [[https://phys.org/news/2018-03-psychographicsthe-behavioural-analysis-cambridge-analytica.html][psychographic analysis, cambridge analytica]]
+***** Pychographics are behavioural (where demographics are informational), used to segment by personality
+     Makes sense, two demographically simliar people can have markedly different personalities and opinions
+***** https://applymagicsauce.com/demo  Discover what your digital footprints reveal about your psychological profile. 
+***** https://www.psychometrics.cam.ac.uk/about-us/directory/michal-kosinski
+***** Api for "public data twitter scraping"
+**** https://discovermyprofile.com/ - cambridge psychometric personality tests
+**** [[https://www.wired.com/story/the-noisy-fallacies-of-psychographic-targeting/][The noisey fallacies of psychographic targeting]]
+**** [[https://www.theverge.com/2018/3/20/17138854/cambridge-analytica-facebook-data-trump-campaign-psychographic-microtargeting][psychographic microtargeting shouldn't get credit for trump]]
+***** “We don’t really know much about the effects of microtargeting, let alone targeting on the basis of someone’s psyche,” says Dobber. “I think Cambridge Analytica is a better marketing company than a targeting company.” 
+***** " In fact, Hersh spent a week trying to create a microtargeting model to find people who were interested in climate change and, he says, “you can’t do better than party affiliation.” If you don’t have access to that information, it’s very hard to figure out who’s interested. If you do, nothing else matters."
+**** https://www.pnas.org/content/111/24/8788.full - Experimental evidence of massive-scale emotional contagion through social networks
+**** https://moz.com/blog/psychographics-deconstructed-what-we-look-like-to-facebook-marketers
+*** Exocortexes and Mnemonics
+**** [[https://threadreaderapp.com/thread/1143989877500891137.html][mnemonic essays - Michael Nielsen's]]
+**** Moonwalking with Einstein : the art and science of remembering everything
+*** Cognitive science / rationalism / Human computer interaction
+**** [[https://www.lesswrong.com/posts/Psp8ZpYLCDJjshpRb/your-intuitions-are-not-magic][less wrong - intuitions]]
+**** Gerd Gigerenzer - Rationality for Mortals
+*** Social media
+**** https://en.wikipedia.org/wiki/Mastodon_(software)
+** Conclusions / Post reading idea reflections
+*** Psychographic microtargeting / Goldsmiths analytica
+**** Sceptical of idea it could be used in a positive way. Inefficient and wouldn't be tackling the route cause.
+**** Could transform idea:
+***** *Idea* Explore psychographics more broadly marketing more critically, in the framework of social media
+*** Exocortexes / Cognitive science
+*** Social Media research project
+** Possible research questions 
+*** Ethically dubious(?) psychographically targeted pro democracy advertising!
+*** What are the ethical limits of targeted advertising, where does something become propaganda?
+** 
+------------------------------------------------------------------------
+* Meeting with Jamie
+** Main Points:
+*** Information theory
+**** How can the data and information in the project be measured?
+     Gave the example of measurable complexity in experiment where sounds were given to people
+*** Research project with strong technical element
+*** Data collection? Surveys, Javascript framework (jsPysch) for psychology tests - 
+*** Lookup:
+- Benjamin Bratton stack
+- feedback pl
+*** Potential Research questions:
+- Algorithmic pyschology, how do algorithms influence us? How does this differ from human influence?
+- =Human computer interaction topic=
+*** Theoretical mega project (PHD) idea
+**** Devise mega (phd) project and select sub project from it
+    ( Link everything )
+    - Creating a spatial dynamic computing platform for computing and media consumption
+    - Social media, the social exocortex
+    - Creating a political 'seeing space' for surveillance capitalists
+    - The technical and ethical factors of pyschographic microtargeting
+** 
+------------------------------------------------------------------------
+* Mozfest notes and ideas
+** Online Targeting and Ad Transparency
+ Jason Chuang, Lonnen, Firefox engineering.
+*** Microtargeting and dark ads, data driven
+**** Precision and dark ads
+**** Pro publica rental housing ads 
+**** Trump 6 million different versions, clinton 66,000 - Facebook internal document
+*** Ad analysis for facebook - Firefox extension
+**** Facebook response
+*** Political Ads Library
+**** api and web version
+**** NYT said its flawed
+**** Phone call?
+*** Algorithm bias
+**** Discrimintaion thourgh optimizaion how facebooks ad delivery can lead to biased outcomes - Muhammad Ali et al.
+*** Discussions
+**** Disabled tools created publicity and change; how can u assert pressure on big tech?
+**** Tools for following political ad impact? whotargetsme / 
+     Crowdsourced tool tracks ad servers?
+**** Ethics in ad agencies
+     National bodies for regulation of political advertisements
+**** How governments use data { read Argentina }
+     ?
+**** Sustainability driven targeting.
+**** Regulation?
+**** Mozilla , do not track option/
+**** Facebook container - firefox
+**** How can we demonstrate negatives of persuasive design
+**** [[https://en.panoptykon.org/about][panoptykon]] - Poland political ads 
+*** Facebook
+**** Impression data avilable
+**** Targeting information missing, Exclusing criteria missing
+*** Contacts
+**** jchuang@mozilla.com
+**** lonnen@mozilla.com
+*** Extras
+**** Stop funding hate
+**** Stop funding climate denial
+**** Conscious ad network
+**** Misinfocon
+** The algorithmic gaze
+*** Points
+**** Transparency of outcomes of algorithms
+**** Integration of ethics across ai design and implementation
+**** Check google search 
+*** Links
+**** [[https://aiethicslab.com][ai ethics lab]]
+** Designing digital policy
+*** "Conscious consuming" has an agency on big tech. 
+** Grant for the web. $100,000,000 Grant in 2020 for more open and transparent web monetization.
+** Immigration technologies
+*** Overview 
+  Emerging area. Immigration tech.
+  Increasingly governments (such as canada) are turning to new solutions to migration managment. 
+  Increased collection of biometric data and algorithmic decision making.
+  Us - Mexican border. Algorithm decision making used in every case.
+  Big data to predict population movement is being used.
+  Challenges to human rights.
+*** Bots at the gate
+  Access information requests.
+  Push to innovate how we interact the immigration applications coming into canada.
+  No conensus on where ai will fit in with this.
+*** Privacy
+  Ramifications of the privacy breech for alsylum seekers could be acute.
+*** Immigration law 
+*** Citizen lab
+*** Palantir, company working in immigration tech
+** Data governance - https://digitalpublic.io
+*** Reading Links and thinking points:
+**** Civic data trusts
+**** [[https://fairmlbook.org/tutorial2.html][Fairness, Accountability and transparency in algorithms - Arvind Narayanan]]
+**** Basis of agency and fairness is split between:
+     - Individual
+     - Group
+     - Society
+**** [[https://foreignpolicy.com/2018/12/19/the-war-torn-web-internet-warring-states-cyber-espionage/][ The war torn web]] - A once unified world broken into warring states.
+**** Public vs Private law
+*** [[https://OpenCorporates.com][ OpenCorporates - largest open database of companies in the world]]
+** Sociocracy for all
+*** FONT ( Feelings, observations, needs, thoughts ) 
+    non violent communication
+*** Structure for open and cooperative decision making
+
+ ------------------------------------------------------------------------
+* Project Specification
+** Project overview
+In this project I will research the technical and ethical factors of microtargeting with psychographics and more widely the intersection of online experience and politics. I will create a series of web experiments that will demonstrate and posit some of the ethical and technical dilemmas of conducting political campaigning with the digital tools and techniques available today. Alongside this I will conduct extensive data retrieval and analysis from online sources to complement the former. I would like to find a specific experimental psychological / political science study to follow, conduct my own experiments and relevant data mining and analysis. The topic of political advertising is a hard data set to interact with so I think I will change this by the end of reading week.
+
+I would like to have two rounds of data gathering from these web based experiments. One in a controlled lab environment and one where participants are doing the experiments in their own time online (in the wild). I will then compare these two to see how these two environments affect the data given as this may offer insights regarding the way we naturally consume digital media.
+
+I would like to produce a web based outcome which will present an overall summary of the project and a formalised set of theoretical and contextual findings based on the results of my technical implementations and data analysis. This will take the form of an interactive and reactive essay published online that will present my analysis. 
+
+** Technologies and Materials
+I will do a series of online experiments to collect data and then analyse and present the findings. These will take the form of in browser psychology experiments where psychological profiles are constructed and relevant political statements are presented which adapt to the persons profile. I will use my web development skills to design the applications, this will include server side and front end programming as well as database management to collect the data. I would also use visualisation techniques and some statistical analysis if enough data is collected to allow for a holistic analysis of the overall data set. I will design the experiments ethically, making sure to get full consent from participants and ensuring the necessary anonymisation and eventual deletion of any raw data I collect. Analysis of meta and “soft” data could also open additional doorways of inquiry which could be explored or just illuminated as potential adjacent areas of research. Various web frameworks will be looked at such as Flask (python) with a MongoDB or SQL backend as well as looking at jsPsych (specifically for psychology experiments). 
+
+A second pathway of technical exploration will be through scraping data from social media to glean insights and to provide an additional dataset and subsequent analysis to compare to my own data collection. To do this I will use python and its various libraries for data processing and analysis, I will use iPython / jupyter notebooks to organise and carry out this work.
+** Context and research
+
+I have been reading around the psychology of influence, specifically through the lense of psychologically and demographically targeted advertising. This is where big data has been used to specifically target individuals with political adverts tailored to their psychological and demographic personal profile. I would like to explore the ethics of this kind of targeting from a technical perspective and through practical demonstration of the kinds of techniques that have been utilised as well as the possibility they could be utilised for social good. 
+
+These themes may be changed after reading week, if I find a specific study in experimental psychology and political science that I can continue as part of this project I will adapt the theoretical research questions
+
+** Existing knowledge
+I have experience of web development from last my last two years which I will utilise in this project. Particularly my experience with python in a web context and also with digital signal processing last year (Perception and Multimedia Computing, audio track). I will consolidate my python knowledge generally as well as my experience with the Flask framework, MongoDB and mysql. I will also use python for its great support for data processing capabilities; for visualisation, statistical analysis and text processing / extraction.  
+
+** New knowledge
+I aim to work through the book Mining the Social Web  learn techniques to get information from social networks regarding “who’s connecting to who, what they’re talking about and where they’re located”. This is what I will use for the data and retrieval and analysis of my project. I will potentially apply techniques from the next terms modules such as machine learning and data mining but this is conditional and will depend on the general flow of my project. This generally will be new knowledge regarding data retrieval and analysis. This will be complemented by my autumn module selection which are Data Visualisaton (using python) and the Social Media, Crowdsourcing and Citizen sensing. These offer wider contextual framework and technical beginnings of this data scientific pathway.
+
+Secondly as mentioned above I will explore the jsPsych JavaScript library for creating psychology experiments in the browser; this is not for certain but I would like to look at this in more detail and see whether its relevant. As well as this framework relevant reading in psychological research practices and theory is needed help with the creation of well designed and relevant experiments.
+
+For the eventual presentation I will look at Tangle, a javascript library for creating reactive documents. I will use this for the adaptive and interactive aspect of the essay.
+
+** Timeline and milestones
+I will begin finalising the design and prototyping the experiment after reading week. This will continue until January when I will aim to have a series of prototypes for the supported building and draft write period. To dissect this further I aim to:
+
+- Prototype the web based experiments 
+- Work my way through Mining the Social Web; extracting and analysing some related data
+- Finalise design for reactive web essay outcome.
+
+After this I will have a firmer vision of the exact nature of the experiments and will aim to have them solidified and ready for running. During the supported building and draft write up period I would hope to be readying myself for running the experiments (controlled and in the wild) and aim to do it at the end of this period (March). Also during this period, I would like to have a good selection of related data sets and some subsequent analysis so that I can finalise what mining techniques and specific data sets I will be using. I will also begin to prototype the web based outcome, start to present my initial data and analysis.
+
+After I have carried out the two sets of web based psychological experimentation I will begin with the final analysis of this data and comparison to the scraped online data. This will be from late March and will be the free build stage where I will compound the scraped and self collected data and work on the essay outcome.
+
+** References:
+- An Analytical Model for the Propagation of Social Influence - https://librarysearch.gold.ac.uk/permalink/f/igqbsh/TN_acm2568753 
+- MULTISTAGE PERFORMANCE MODELLING IN DIGITAL MARKETING MANAGEMENT - https://librarysearch.gold.ac.uk/permalink/f/igqbsh/TN_proquest1812208518
+- Optmizely blog - How to run a political campaign - https://blog.optimizely.com/tag/political-campaign/
+- Interaction design - beyond human computer interaction - https://librarysearch.gold.ac.uk/permalink/f/igqbsh/TN_vlebooksAH36175568
+- Micro-targeting, the quantified persuasion; Micro-targeting, the quantified persuasion - [[https://librarysearch.gold.ac.uk/permalink/f/igqbsh/TN_datacite13850344 ]]
+- Distortions , conference proceeding - https://librarysearch.gold.ac.uk/permalink/f/s9ouig/44GOL_EPRINTS23300
+- Consumer Choice and Autonomy in the Age of Artificial Intelligence and Big Data - https://librarysearch.gold.ac.uk/permalink/f/igqbsh/TN_springer_jour10.1007/s40547-017-0085-8
+- Understanding OBA, user knowledge, privacy concerns and beliefs - https://www.sciencedirect.com/science/article/pii/S0747563213004299 
+- Exploration of consumer motivational research and psychological techniques to produce desire for products in the post-war era - https://en.wikipedia.org/wiki/Vance_Packard#The_Hidden_Persuaders
+- Interactive tools for thought - https://numinous.productions/ttft/ 
+- Designing a new medium for science and engineering - http://worrydream.com/#!/MediaForThinkingTheUnthinkable
+
+** 
+ ------------------------------------------------------------------------
+* New movements
+** New reference points
+*** [[https://librarysearch.gold.ac.uk/primo-explore/fulldisplay?vid=44GOL_VU1&search_scope=default_scope&tab=default_tab&docid=44GOL_ALEPH000484152&lang=en_US&context=L&adaptor=Local%20Search%20Engine&query=any,contains,cognitive%20science%20research&mode=Basic][data science in cog science]]
+*** https://en.wikipedia.org/wiki/Shoshana_Zuboff
+*** https://en.wikipedia.org/wiki/Jaron_Lanier#Early_life_and_education_(1960%E2%80%931982)
+** Digital cognition - Computer augmented brain
+*** Simple tool which challenges and or augments everyday use of computers.
+*** Psychological game which explores the addictive nature of modern HCI
+**** behavioural data extraction, (make accessible?)
+**** Web app / phone app
+*** (CBT based) antidote to digital dopamine hits 
+*** Thinker tool for thinking unthinkable thoughts
+** networkx
+** debian, community and governmental structure.
+** brave
+** social graphing? of outcomes? 
+** DNS fundamentally flawed
+** Other idea speculations
+- Model-based {{...}} for augmented imagination.
+- Psychological browser game exploring behavioural extraction and influence online, particularly the addictive and persuasive nature of contemporary internet media.
+- Play game, collect data, display. What data could be collected? Response times, tasks completed, vocabulary used (?), photographs (?) and facial expression, if the player is influence.
+- Multiplayer and single player modes.
+- Game based Cognitive behavioural therapy for political debate.
+- Model-driven debate / reading / authoring 
+- Game / system for exploration via model-based imagination augmentation. Player logs in and enters game space. Levels are completed by exploring model dynamically through 
+- Single or multiplayer game like system for exploring and imagining new ideas.
+- Paper programs CBT program
+
+** ONLINE LINKS: 
+*** https://en.wikipedia.org/wiki/Diplomat_(card_game)
+*** http://worrydream.com/#!/ClimateChange
+*** http://worrydream.com/Home2011/Script/
+*** https://quantum.country/qcvc#part-II
+*** https://connect.springerpub.com/content/sgrjcp/25/4/304?implicit-login=true // CBT IA paper
+*** http://worrydream.com/Tangle/
+*** https://hovancik.net/stretchly/ // solution to overuse of computer
+*** Org mode
+*** https://github.com/AlexNisnevich/untrusted // meta-javascript adventure game
+*** http://worrydream.com/MagicInk/#of_software_and_sorcery // Information Software and the Graphical Interface
+*** https://docs.opencv.org/3.3.1/d5/d10/tutorial_js_root.html // opencv js
+* Project Specification mark 2:
+** Project overview
+
+In this project I will create a browser based system for spatial tabletop computer interaction. It will be web based interactive {computing} environment where one can /write programs/ by arranging coloured objects on the table. When put in particular patterns this will trigger an affect. This could be displaying an image or connecting objects in the space, displaying a text editor or a web page. The fundamental idea here would be an interaction model based of physical placement and movement of objects on a 2d surface space which then reacts live. 
+
+#+CAPTION: sketch 1
+[[file:setup.jpg]]
+
+A set of 4 or 5 different symbols each represented by coloured dots will be created and this will control the environment. These will be printed on paper or be individual pieces which are place around the surface. The relative positioning and interaction of these dots will cause various effects. 
+
+I thought of the possibility of implementing a Turing Machine but the first thing would be creating simple interactive models; this could also be a drawing or modelling tool or game. I would like to create a base setup which would allow for easy expansion and be modular in it's essence, first creating a base Computer vision and display system with an API following this an interaction design style game experiment. This could be something relatively simple but it would be a game that facilitates an exploration of the cognitive aspects of /human computer interaction/.
+
+** Technologies and Materials
+
+The setup will consist of a nodejs server serving client side javascript. This will include an [[https://docs.opencv.org/3.4/d4/da1/tutorial_js_setup.html][emscripten]] or [[https://webassembly.org/][WebAssembly]] compiled version of the opencv library. For the projection mapped surface I will do this with Javascript, HTML and the DOM and potentially with [[https://reactjs.org/][React Js]]. Scripting of the language model and base system API will be done in Javascript as well as the games implemented. I will look into React for the interface but may end up using the standard Javascript, HTML and DOM elements.
+
+The motivation for having a browser based system is accessibility and portability as a compromise over speed. As PaperPrograms demonstrates a responsive enough system is doable through the browser and with this it allows for easy usage by anyone with a projector, webcam and computer. In keeping with [[https://paperprograms.org/][PaperProgram's]] system I will use postgresql for a database system if this ends up being a necessary part of the overall piece. I should also formally mention PaperPrograms, which uses this nodejs, opencv and postgresql stack, as my main technical reference for the project.
+
+Hardware will consist of my laptop running locally the node server and client system as well as a projector; PaperPrograms recommend 1080p and at least 2000 Limns. Colour printing and potentially colour pens or some other source of coloured paper. Colour printing should be good for consistent colour.
+
+** Context and research
+
+My main point of reference is [[https://dynamicland.org][Dynamicland]] cite:VictorKayDynamicLand, an immersive collaborative computer system based in Oakland (US), and more specifically PaperPrograms, a web implementation of one element of Dynamicland's /Realtalk OS/. /PaperPrograms/ is a camera, projector and computer setup where colour pattern coded  pieces of paper are recognised by a camera and corresponding Javascript programs are then run and the results of which are projected onto the same surface. This creates a loop where program-object has physical representation on a surface; it's position and relation to other programs can have effects on the overall system.
+
+Through the project I would like to explore the cognitive aspects of /Human Computer Interaction/ cite:SharpHelen2019IDBH, particularly behavioural influence. This could be done by creating a simple interactive game/s or experience which illustrates some of the psychological and cognitive phenomena of HCI.
+
+** Existing knowledge
+
+My existing knowledge is in Web development (Nodejs, Flask, MySQL, MongoDB) and Computer Vision work in P5.js last year and from my [[https://github.com/locua/CPY1-code-experiment-with-colour--and-sound][First Year Project]] where I used a blob tracking algorithm in Processing. This will be developed with a more advanced colour tracking and blob detection algorithm as well as  pattern detection that will work on top of this.
+
+** New knowledge
+
+More detailed Javascript manipulation of the DOM will be new to me as well as the implementation of complex Computer vision approaches. I have begun to study the setup of PaperPrograms in detail and will continue as necessary and where it relates to my project.
+
+Nodejs is something I've used somewhat but not for any big projects so that will also be a new area for learning but I think I have the main relevant understanding.
+
+I would like to do a little more reading cite:Li-HsingShih2016PDfP,2005CACL  on persuasive technologies and behavioural change and use this as the basis for the high level system design. 
+
+** Timeline and milestones
+*** By January
+
+Implementation of blob and colour tracking algorithm. I want to get this completed as quickly as possible so that I can move on to the system itself. I would also like to have the projection element in place and able to receive data from the camera input and detection scripts.
+**** TODO Implement blob and colour tracking.
+**** TODO Projection element also in place.
+*** January to Feburary
+
+Development on the HCI system will be finalised and will begin work on this with an aim to keep the 
+**** TODO Finalise design on HCI system
+**** TODO Implement base system and API for defining patterns of colours and blob (node) relationships.
+*** Feburary and March
+**** TODO Implement and play test first game experiment, this will be a simple interaction design example or game which makes use of the interactive medium the setup presents.
+**** TODO Iterate this implementation. This could include a public setup in this period to get wider user testing.
+*** Mid March to April
+**** TODO Further iterate and develop interaction system design. If interesting game idea develops follow this.
+**** TODO Finalise system operation and game element. Tweak hardware setup where needed.
+*** April 
+**** TODO Finalise project form
+**** TODO Begin write up and
+
+** Potential */alternative project variation/* if authorities allow
+
+Another project variation idea I would like to discuss with the department is whether I could use the PaperPrograms system (that I've had running locally on my system) and use this as the software platform with which to build a cognitive HCI experiment / game system on top of. PaperPrograms is a nice system and it would be a great starting point to build something on top of itself...
+
+** Technical references
+*** [[https://paperprograms.org/][Paperprograms]]
+*** [[https://webassembly.org/][WebAssembly]]
+*** [[https://docs.opencv.org/3.4/d5/d10/tutorial_js_root.html][opencv.js]]
+*** [[https://developer.mozilla.org/en-US/docs/Web/javascript][Javascript MDN web docs]]
+
+* January 2020. Interim report todos
+** /paperprograms schema
+[[file:assets/hard-schema.png]]
+** vague aims/ questions
+• What are the cogntive benefits of this kind of interaction model?
+• What are some limitations of shareable interfaces like this?
+• Dynamic interaction, how can an interface where haptic interaction is involved augment user experience, particulary perception and thought?
+** Immediate TODO's
+** Finalise design of HCI aspect through physical and digital prototyping
+  ◦ Beginning prototyping physical:
+     ▪ Experimental game idea
+     ▪ Social interaction through computing
+     ▪ Explorable visualiser; scale-aware
+  ◦ Define and create a playtest ready prototype
+** Memory!
+** ref:
+http://sk.sagepub.com/reference/the-sage-handbook-of-digital-technology-research
+* Prototyping
+** reference: 
+*** theoretical stuff
+Gigerenzer:
+    • social instincts: special(ised) gut feelings about social situations
+    • Basic instincts such as family instinct and a (community) tribal instinct contradict a pure selfishness
+
+Useful links:
+
+http://sk.sagepub.com/reference/the-sage-handbook-of-digital-technology-research
+
+https://www.springer.com/gp/book/9781849961127 
+** Meeting points:
+*** Minimal viable product
+**** Define
+**** + addons ie sound
+*** Assessment as and artwork
+**** What does the work explore?
+**** Experimental tests
+*** tODos
+**** TODO Sort projector and home setup. Quicksticks
+**** TODO Prototyping, memory model
+**** TODO Prototyping, physical
+**** TODO Coding! Further API exploration
+**** Meta TODO think about development in /paperprograms/ while developing. Maybe its gonna be good fun...
+**** TODO Think about states and stages. How will we flip between states, how will it be signified?
+**** TODO The haptic interface itself. mouse? keyboard? blob handle?
+**** Side TODO Think about sound (as addon)
+* Evaluation
+** Project one-liner?
+Exploring the cognitive aspects of a spatial haptic computing environment through an interactive artwork.
+** Research questions
+*** Dynamic interaction, how can an interface haptic interaction is involved augment user experience, particularly perception and thought?
+*** How can spatial HCI environments augment cognition?
+augment cognition: perception of complex / dynamic processes
+What processes?
+*** What are some limitations of shareable interfaces like this?
+*** How easy is the design on cognition augmenting tools?(Hard? yes but how can simple things be)
+*** Questions:
+**** weight of project, could modules replace part of project
+**** opencv compile
+**** Project rejig
+
+* project TODOs :noexport:
+** TODO Research P2P tech, tools and its network architecture
+** TODO Formulate possible cognitive science research topic
+* other notes :noexport:
+** conservative marketing guru who changed "global warming" to "climate change" - https://en.wikipedia.org/wiki/Frank_Luntz

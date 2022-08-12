@@ -1,13 +1,15 @@
 <html>
 <head>
   <style>
-    body{white-space:pre-wrap;width 300px;font-family: monospace;}
+    div{white-space:pre-wrap;width: 800px;font-family: monospace;}
   </style>
 </head>
 <body>
+<div id="top">
+</div>
 <div id="bod">
 Password for 'https://Loki@llllllllllll_com':                                                          [0/170]│man@earth:docs$ pwd                                                                            [188/188]
-Enumerating objects: 215, done.                                                                          │/home/babe/src/oh/INTERNAL/sticky_pudding/docs                                                         
+Enumerating objects: 215, done.                                                                          │/house/gabe/src/oh/INTERNAL/sticky_pudding/docs                                                         
 Counting objects: 100% (215/215), done.                                                                  │man@earth:docs$ cd _build/                                        
 Delta compression using up to 8 threads                                                                  │doctrees/ html/                                                    
 Compressing objects: 100% (116/116), done.                                                               │man@earth:docs$ cd _build/html/                                   
@@ -15,25 +17,26 @@ Writing objects: 100% (116/116), 35.73 KiB | 1.70 MiB/s, done.                  
 Total 116 (delta 110), reused 0 (delta 0), pack-reused 0                                                 │man@earth:docs$ cd _build/html/                                                                         
 remote: Resolving deltas: 100% (110/110), completed with 95 local objects.                               │man@earth:html$ live-server                                       
 To https://putgood.com/Loki/docdraft.git                                                                 │http://0.0.0.0:8080 is already in use. Trying another port.                                              
-   cb1ab78..7167467  main -> main                                                                        │Ready for changes                
-man@earth:docdraft$                                                                                     │Serving "/home/babe/src/oh/INTERNAL/sticky_pudding/docs/_build/html" at http://127.0.0.1:39985
-─────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────────────────────┬────────────────────────────────────────────────────────────────────────────
+   cb1ab78..7167467  main - main                                                                        │Ready for changes                
+man@earth:docdraft$                                                                                     │Serving "/house/gabe/src/oh/INTERNAL/sticky_pudding/docs/_build/html" at http://127.0.0.1:39985
+─────────────────────────────────────────────────────────────────────────────────────────────────────
+────┴────────────────────────────┬────────────────────────────────────────────────────────────────────────────
 core_diff:27: WARNING: Inline interpreted text or phrase reference start-string without end-string.                                   │        _build/                                                       [0/32]
-/home/babe/src/oh/INTERNAL/sticky_pudding/ohai/bias/computes/_regress.py:docstring of ohai.bias.computes._regress.zs│        examples/                     
+/house/gabe/src/oh/INTERNAL/sticky_pudding/ohai/bias/computes/_regress.py:docstring of ohai.bias.computes._regress.zs│        examples/                     
 core_diff:28: WARNING: Block quote ends without a blank line; unexpected unindent.                                                    │        generated/                    
-/home/babe/src/oh/INTERNAL/sticky_pudding/ohai/bias/computes/_regress.py:docstring of ohai.bias.computes._regress.zs│        ../examples/.ipynb_checkpoints/                                     
+/house/gabe/src/oh/INTERNAL/sticky_pudding/ohai/bias/computes/_regress.py:docstring of ohai.bias.computes._regress.zs│        ../examples/.ipynb_checkpoints/                                     
 core_diff:31: WARNING: Title underline too short.                                                                                     │        ../examples/Untitled.ipynb                                          
                                                                                                                                       │        ../examples/law_school_clean.csv                                    
 Examples                                                                                                                              │        ../examples/student-mat.csv                                         
 -------                                                                                                                               │        ../examples/student-merge.R                                         
-/home/babe/src/oh/INTERNAL/sticky_pudding/ohai/bias/computes/_regress.py:docstring of ohai.bias.computes._regress.zs│        ../examples/student-por.csv                                         
+/house/gabe/src/oh/INTERNAL/sticky_pudding/ohai/bias/computes/_regress.py:docstring of ohai.bias.computes._regress.zs│        ../examples/student-por.csv                                         
 core_diff:31: CRITICAL: Unexpected section title.                                                                                     │        ../examples/student.txt                                             
                                                                                                                                       │        ../examples/student.zip                                             
 Examples                                                                                                                              │
 -------                                                                                                                               │nothing added to commit but untracked files present (use "git add" to track)
 looking for now-outdated files... none found                                                                                          │man@earth:docs$ git switch docs                                            
 pickling environment... done                                                                                                          │Switched to branch 'docs'             
-checking consistency... /home/babe/src/oh/INTERNAL/sticky_pudding/docs/yesmans.rst: WARNING: document isn't included in any toctre│Your branch is ahead of 'origin/docs' by 1 commit.                          
+checking consistency... /house/gabe/src/oh/INTERNAL/sticky_pudding/docs/yesmans.rst: WARNING: document isn't included in any toctre│Your branch is ahead of 'origin/docs' by 1 commit.                          
 e                                                                                                                                     │  (use "git push" to publish your local commits)                            
 done                                                                                                                                  │man@earth:docs$ ls                   
 preparing documents... done                                                                                                           │bias.rst  conf.py   generated        index.rst  Makefile                    
@@ -50,7 +53,7 @@ copying extra files... done                                                     
 dumping search index in English (code: en)... done                                                                                    │man@earth:docs$ ^C                                                         
 dumping object inventory... done                                                                                                      │man@earth:docs$ ^C                                                         
 build succeeded, 43 warnings.                                                                                                         │man@earth:docs$ pwd                                                        
-                                                                                                                                      │/home/babe/src/oh/WORKING/sticky_pudding/docs                             
+                                                                                                                                      │/house/gabe/src/oh/WORKING/sticky_pudding/docs                             
 The HTML pages are in _build/html.                                                                                                    │man@earth:docs$ s
 (general) man@earth:docs$                                                                                                            │man@earth:docs$ 
 (0) 😌                                                                                  docs-wip bash internal-release bash                                                                                
@@ -61,14 +64,50 @@ locua.putgood.io
 <script>
 let t=setInterval(run,2);
 let c = 0;
+let i = 0;
+let d = Date().toString();
+let txt = "Date: " + d + "\nSalut to you\n";
+padd(txt);
 function run(){
   let b = Array.from(document.getElementById("bod").innerHTML);
   let r = Math.floor(Math.random()*b.length);
   b[r] = Math.floor(Math.random()*10).toString();
   document.getElementById("bod").innerHTML = b.join("");
   c++;
-  if(c>5000){
+  if(c>400){
+    padd("\nhello again");
     clearInterval(t);
+    t=setInterval(next, 20); 
+  }
+}
+
+function next(){
+  let b = Array.from(document.getElementById("bod").innerHTML);
+  if(b.length>2000){
+    b.pop();
+  }
+  else{
+    clearInterval(t);
+    i=0;
+  }
+  document.getElementById("bod").innerHTML = b.join("");
+}
+
+function padd(t){
+  for(let j = 0; j < t.length; j++){
+    (function(j){
+    setTimeout(() => { 
+      document.getElementById("top").innerHTML += t.charAt(j);
+    }, 20*j);
+    }(j));
+  }
+}
+
+function pp(_in){
+  if (i < _in.length) {
+    document.getElementById("top").innerHTML += _in.charAt(i);
+    i++;
+    setTimeout(pp(_in), 40);
   }
 }
 </script>

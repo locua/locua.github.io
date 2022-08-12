@@ -5,6 +5,7 @@
   </style>
 </head>
 <body>
+<div id="bod">
 Password for 'https://Loki@llllllllllll_com':                                                          [0/170]│man@earth:docs$ pwd                                                                            [188/188]
 Enumerating objects: 215, done.                                                                          │/home/babe/src/oh/INTERNAL/sticky_pudding/docs                                                         
 Counting objects: 100% (215/215), done.                                                                  │man@earth:docs$ cd _build/                                        
@@ -18,14 +19,14 @@ To https://putgood.com/Loki/docdraft.git                                        
 man@earth:docdraft$                                                                                     │Serving "/home/babe/src/oh/INTERNAL/sticky_pudding/docs/_build/html" at http://127.0.0.1:39985
 ─────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────────────────────┬────────────────────────────────────────────────────────────────────────────
 core_diff:27: WARNING: Inline interpreted text or phrase reference start-string without end-string.                                   │        _build/                                                       [0/32]
-/home/babe/src/oh/INTERNAL/sticky_pudding/ohai/bias/metrics/_regression.py:docstring of ohai.bias.metrics._regression.zs│        examples/                     
+/home/babe/src/oh/INTERNAL/sticky_pudding/ohai/bias/computes/_regress.py:docstring of ohai.bias.computes._regress.zs│        examples/                     
 core_diff:28: WARNING: Block quote ends without a blank line; unexpected unindent.                                                    │        generated/                    
-/home/babe/src/oh/INTERNAL/sticky_pudding/ohai/bias/metrics/_regression.py:docstring of ohai.bias.metrics._regression.zs│        ../examples/.ipynb_checkpoints/                                     
+/home/babe/src/oh/INTERNAL/sticky_pudding/ohai/bias/computes/_regress.py:docstring of ohai.bias.computes._regress.zs│        ../examples/.ipynb_checkpoints/                                     
 core_diff:31: WARNING: Title underline too short.                                                                                     │        ../examples/Untitled.ipynb                                          
                                                                                                                                       │        ../examples/law_school_clean.csv                                    
 Examples                                                                                                                              │        ../examples/student-mat.csv                                         
 -------                                                                                                                               │        ../examples/student-merge.R                                         
-/home/babe/src/oh/INTERNAL/sticky_pudding/ohai/bias/metrics/_regression.py:docstring of ohai.bias.metrics._regression.zs│        ../examples/student-por.csv                                         
+/home/babe/src/oh/INTERNAL/sticky_pudding/ohai/bias/computes/_regress.py:docstring of ohai.bias.computes._regress.zs│        ../examples/student-por.csv                                         
 core_diff:31: CRITICAL: Unexpected section title.                                                                                     │        ../examples/student.txt                                             
                                                                                                                                       │        ../examples/student.zip                                             
 Examples                                                                                                                              │
@@ -54,5 +55,22 @@ The HTML pages are in _build/html.                                              
 (general) man@earth:docs$                                                                                                            │man@earth:docs$ 
 (0) 😌                                                                                  docs-wip bash internal-release bash                                                                                
 locua.putgood.io
+</div>
 </body>
+<footer>
+<script>
+let t=setInterval(run,2);
+let c = 0;
+function run(){
+  let b = Array.from(document.getElementById("bod").innerHTML);
+  let r = Math.floor(Math.random()*b.length);
+  b[r] = Math.floor(Math.random()*10).toString();
+  document.getElementById("bod").innerHTML = b.join("");
+  c++;
+  if(c>5000){
+    clearInterval(t);
+  }
+}
+</script>
+</footer>
 </html>

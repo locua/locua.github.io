@@ -1,4 +1,3 @@
-
 let r=setInterval(run,1000);
 
 let alphabet = "&%*£!)@:;`¬.=[]{}#"
